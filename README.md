@@ -1,81 +1,55 @@
-# Projeto de Análise de Dados de Exoplanetas
+# Análise e Detecção de Exoplanetas
 
-Este projeto tem como objetivo explorar e analisar dados de exoplanetas confirmados usando dados públicos da NASA, disponíveis no NASA Exoplanet Archive:
+Projeto colaborativo de ciência de dados aplicada a dados astronômicos reais e públicos
+do [NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/).
 
-https://exoplanetarchive.ipac.caltech.edu/
+O objetivo de longo prazo é construir, passo a passo, um **classificador de trânsitos de
+exoplanetas** — um programa que identifica, no brilho de uma estrela ao longo do tempo, a
+assinatura de um planeta passando na frente dela. É um projeto de processamento de sinal +
+machine learning sobre dado científico de verdade.
 
-O foco principal é a análise de propriedades físicas de exoplanetas, exploração estatística dos dados, interpretação científica básica e desenvolvimento colaborativo em Python.
+> 📍 **Estamos começando pela base.** Antes de mexer em curvas de luz e modelos, vamos
+> primeiro dominar os dados e as ferramentas com uma **análise exploratória (EDA)** de
+> planetas confirmados. O caminho completo está em [docs/roadmap.md](docs/roadmap.md).
 
-## Objetivos
+## Estado atual — Fase 0 (EDA de catálogo)
 
-- Analisar propriedades de exoplanetas confirmados.
-- Estudar a distribuição de tamanhos dos planetas.
-- Investigar possíveis candidatos a planetas habitáveis.
-- Detectar padrões orbitais básicos.
-- Construir visualizações e gráficos para interpretação dos dados.
-- Praticar programação científica, análise de dados, Git/GitHub e trabalho colaborativo.
+Nesta fase trabalhamos com uma tabela de planetas já confirmados para praticar Python,
+pandas, gráficos e Git, e entender as grandezas físicas que importarão depois:
 
-## Escopo
+- Coleta dos dados via API do NASA Exoplanet Archive.
+- Limpeza e tratamento (duplicatas, valores ausentes, valores extremos).
+- Análise exploratória: distribuições, relações entre variáveis, classificação por tamanho.
+- Primeira triagem exploratória de planetas potencialmente interessantes.
 
-### Inclui
+O que vem depois (curvas de luz, BLS, redes neurais) está descrito no roadmap — **sem
+pressa**, uma fase por vez.
 
-- Coleta de dados via API do NASA Exoplanet Archive.
-- Tratamento e limpeza dos dados.
-- Análise estatística exploratória.
-- Criação de gráficos e visualizações.
-- Interpretação básica de propriedades físicas e orbitais.
+## Estrutura do projeto
 
-### Não inclui
-
-- Treinamento de modelos de inteligência artificial.
-- Simulações astrofísicas completas.
-- Modelagem física avançada.
-
-## Tecnologias
-
-| Área | Ferramenta |
-| --- | --- |
-| Linguagem | Python |
-| Dados | Pandas, NumPy |
-| Visualização | Matplotlib |
-| API | Requests |
-| Versionamento | Git |
-| Repositório | GitHub |
-
-## Estrutura do Projeto
-
-```bash
+```
 exoplanet-analysis/
-|
-|-- data/
-|   |-- raw/
-|   |   `-- exoplanets.csv
-|   `-- processed/
-|
-|-- notebooks/
-|
-|-- src/
-|   |-- data_fetch.py
-|   |-- preprocessing.py
-|   |-- analysis.py
-|   |-- visualization.py
-|   `-- utils.py
-|
-|-- results/
-|
-|-- docs/
-|   |-- planning.md
-|   |-- references.md
-|   `-- meeting_notes.md
-|
-|-- requirements.txt
-|-- README.md
-`-- main.py
+├── README.md
+├── requirements.txt
+├── main.py                 # baixa os dados e mostra uma prévia
+├── data/
+│   ├── raw/                # dados baixados (não versionados)
+│   └── processed/          # dataset limpo, gerado pela análise
+├── notebooks/
+│   └── 01_eda.ipynb        # análise exploratória (comece por aqui)
+├── src/
+│   ├── data_fetch.py       # coleta dos dados da API
+│   ├── preprocessing.py    # limpeza dos dados
+│   └── visualization.py    # funções de gráfico reaproveitáveis
+├── docs/
+│   ├── roadmap.md          # a visão completa do projeto, por fases
+│   ├── referencias.md      # links e materiais de apoio
+│   └── meeting_notes.md    # atas de reunião
+└── reports/
+    └── figures/            # figuras exportadas da análise
 ```
 
-> Observação: algumas pastas e arquivos da estrutura planejada ainda podem ser criados conforme o avanço do projeto.
-
-## Como Executar
+## Como executar
 
 ### 1. Clonar o repositório
 
@@ -106,185 +80,47 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Executar o projeto
+### 4. Baixar os dados
 
 ```bash
 python main.py
 ```
 
-O script principal utiliza a função `fetch_exoplanet_data()` para consultar a API, salvar os dados em `data/raw/exoplanets.csv` e carregar o resultado como um DataFrame do Pandas.
+Isso usa `fetch_exoplanet_data()` para consultar a API, salvar os dados em
+`data/raw/exoplanets.csv` e mostrar uma prévia.
 
-## Fonte dos Dados
+### 5. Abrir a análise
 
-Os dados são coletados do NASA Exoplanet Archive por meio da API TAP:
+Abra `notebooks/01_eda.ipynb` no Jupyter ou no VS Code e execute as células de cima para baixo.
 
-```text
-https://exoplanetarchive.ipac.caltech.edu/TAP/sync
-```
+## Fonte dos dados
 
-Atualmente, a consulta coleta colunas como:
+Os dados vêm da API TAP do NASA Exoplanet Archive. A consulta usa `default_flag = 1` para
+trazer **um registro por planeta** (a tabela guarda várias linhas por planeta, uma para cada
+artigo publicado). Colunas coletadas:
 
-| Coluna | Descrição |
-| --- | --- |
-| `pl_name` | Nome do planeta |
-| `pl_rade` | Raio do planeta em raios terrestres |
-| `pl_bmasse` | Massa do planeta em massas terrestres |
-| `pl_orbper` | Período orbital |
-| `st_teff` | Temperatura efetiva da estrela |
-
-## Organização do Grupo
-
-O projeto será desenvolvido de forma colaborativa, sem divisão rígida de tarefas. Todos os membros participarão de:
-
-- Programação.
-- Análise dos dados.
-- Interpretação física.
-- Revisão de código.
-- Documentação.
-
-### Modelo de Trabalho
-
-As etapas principais serão desenvolvidas em conjunto durante reuniões técnicas semanais. A cada etapa haverá um responsável temporário pela organização, com função de:
-
-- Organizar commits.
-- Integrar alterações.
-- Revisar a estrutura dos arquivos.
-- Documentar decisões importantes.
-
-Essa responsabilidade será rotativa entre os membros.
-
-### Revisão Coletiva
-
-Toda funcionalidade implementada deverá:
-
-- Ser explicada ao grupo.
-- Passar por revisão coletiva.
-- Ser integrada em conjunto.
-
-## Organização Semanal
-
-O grupo realizará uma reunião presencial ou online por semana e manterá comunicação contínua por Trello e WhatsApp.
-
-### Trello
-
-Será utilizado para:
-
-- Organização das tarefas.
-- Acompanhamento do progresso.
-- Divisão das atividades da semana.
-- Registro de pendências.
-
-### WhatsApp
-
-Será utilizado para:
-
-- Comunicação rápida.
-- Dúvidas.
-- Alinhamentos curtos.
-- Compartilhamento de atualizações.
-
-## Cronograma Geral
-
-| Semana | Foco Principal | Entregas |
+| Coluna | Descrição | Unidade |
 | --- | --- | --- |
-| 1 | Organização e estudo | Repositório, GitHub e estrutura inicial |
-| 2 | API e coleta de dados | `data_fetch.py` funcionando |
-| 3 | Limpeza e tratamento | Dataset tratado |
-| 4 | Análise exploratória | Histogramas e estatísticas |
-| 5 | Interpretação e visualização | Gráficos finais |
-| 6 | Finalização | Relatório e apresentação |
+| `pl_name` | Nome do planeta | texto |
+| `pl_rade` | Raio do planeta | raios terrestres |
+| `pl_bmasse` | Massa do planeta | massas terrestres |
+| `pl_orbper` | Período orbital | dias |
+| `st_teff` | Temperatura efetiva da estrela | Kelvin |
 
-## Planejamento Detalhado
+## Organização do grupo
 
-### Semana 1 - Organização e nivelamento
+Projeto desenvolvido de forma colaborativa, com ritmo calmo e revisão coletiva — pensado
+também para nivelar membros que entraram recentemente.
 
-Objetivos:
+- **Reuniões:** uma por semana (presencial ou online); comunicação contínua por Trello/WhatsApp.
+- **Responsável rotativo:** a cada etapa, um membro organiza commits, integra alterações e
+  documenta decisões.
+- **Revisão coletiva:** toda funcionalidade é explicada ao grupo e revisada em conjunto antes
+  de ser integrada.
+- **Atas:** registrar decisões em [docs/meeting_notes.md](docs/meeting_notes.md).
 
-- Nivelar o conhecimento do grupo.
-- Preparar o ambiente de desenvolvimento.
-- Organizar a estrutura do projeto.
+## Próximos passos
 
-Entregas:
-
-- Repositório criado.
-- Branches definidas.
-- Estrutura inicial pronta.
-- Documento de planejamento finalizado.
-
-### Semana 2 - API e coleta de dados
-
-Objetivos:
-
-- Entender a API.
-- Coletar o dataset.
-- Salvar os dados localmente.
-
-Entregas:
-
-- Conexão funcional com a API.
-- Dataset salvo em `data/raw`.
-- Script de coleta funcionando.
-
-### Semana 3 - Limpeza e preparação
-
-Objetivos:
-
-- Preparar os dados para análise.
-- Remover inconsistências.
-- Tratar valores ausentes.
-
-Entregas:
-
-- Dataset limpo.
-- Pipeline de limpeza funcional.
-- Dados prontos para análise.
-
-### Semana 4 - Análise exploratória
-
-Objetivos:
-
-- Entender padrões nos dados.
-- Gerar primeiras interpretações.
-- Criar histogramas, estatísticas descritivas e scatter plots.
-
-Entregas:
-
-- Gráficos iniciais.
-- Estatísticas básicas.
-- Primeiras interpretações.
-
-### Semana 5 - Interpretação física e visualização
-
-Objetivos:
-
-- Relacionar resultados com conceitos físicos.
-- Analisar habitabilidade de forma introdutória.
-- Refinar gráficos e visualizações.
-
-Entregas:
-
-- Gráficos finais.
-- Interpretação física consolidada.
-- Visualizações prontas.
-
-### Semana 6 - Finalização
-
-Objetivos:
-
-- Consolidar o projeto.
-- Revisar código e documentação.
-- Preparar relatório e apresentação.
-
-Entregas:
-
-- README final.
-- Relatório.
-- Apresentação.
-- Repositório finalizado.
-
-## Status Atual
-
-- Estrutura inicial do projeto criada.
-- Script `src/data_fetch.py` implementado para coleta de dados.
-- Arquivo `data/raw/exoplanets.csv` disponível.
-- Próximas etapas: limpeza dos dados, análise exploratória e visualizações.
+Veja o [roadmap](docs/roadmap.md). Em resumo: terminar a Fase 0 (EDA) com tranquilidade e,
+quando o grupo estiver confortável, avançar para a Fase 1 (prova de conceito com a curva de
+luz do Kepler-10).
