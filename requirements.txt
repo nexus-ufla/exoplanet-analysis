@@ -1,5 +1,8 @@
 pandas
 numpy
 matplotlib
+seaborn
 requests
+
+# Usado apenas nas fases futuras (curvas de luz Kepler/TESS)
 lightkurve

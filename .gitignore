@@ -1,1 +1,17 @@
-.vscode
+# Editores
+.vscode/
+.idea/
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Dados (não versionar; baixados via script)
+data/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Checkpoints de notebook
+.ipynb_checkpoints/
