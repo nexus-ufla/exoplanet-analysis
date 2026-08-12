@@ -8,10 +8,6 @@ venv/
 
 # Dados (não versionar; baixados via script)
 data/
-!data/
-data/*
-!data/sample/
-!data/sample/*.csv
 
 # Cache do Python
 __pycache__/

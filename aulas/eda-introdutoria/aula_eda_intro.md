@@ -5,8 +5,8 @@ distância-velocidade de galáxias no artigo clássico de Edwin Hubble, publicad
 
 Material de apoio:
 
-- Dados: `data/sample/hubble_1929_galaxias.csv`
-- Notebook: `notebooks/00_aquecimento_eda.ipynb`
+- Dados: `aulas/eda-introdutoria/dados/hubble_1929_galaxias.csv`
+- Notebook: `aulas/eda-introdutoria/00_aquecimento_eda.ipynb`
 - Fonte: NASA/APOD, reprodução do artigo "A Relation Between Distance and Radial Velocity
   Among Extra-Galactic Nebulae", de Edwin Hubble:
   <https://apod.nasa.gov/diamond_jubilee/1996/hub_1929.html>
