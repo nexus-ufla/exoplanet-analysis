@@ -42,7 +42,8 @@ exoplanet-analysis/
 │   ├── preprocessing.py    # limpeza dos dados
 │   └── visualization.py    # funções de gráfico reaproveitáveis
 ├── docs/
-│   ├── roadmap.md          # a visão completa do projeto, por fases
+│   ├── roadmap.md          # os módulos de análise do projeto
+│   ├── como-trabalhamos.md # divisão de tarefas, papéis e regras de Git
 │   ├── referencias.md      # links e materiais de apoio
 │   └── meeting_notes.md    # atas de reunião
 └── reports/
@@ -112,15 +113,18 @@ artigo publicado). Colunas coletadas:
 Projeto desenvolvido de forma colaborativa, com ritmo calmo e revisão coletiva — pensado
 também para nivelar membros que entraram recentemente.
 
+**Cada módulo de análise é explorado pelo grupo inteiro, junto.** O que dividimos é o
+trabalho dentro de cada módulo — os papéis, o modo de trabalho e as regras de Git estão em
+[docs/como-trabalhamos.md](docs/como-trabalhamos.md).
+
 - **Reuniões:** uma por semana (presencial ou online); comunicação contínua por Trello/WhatsApp.
-- **Responsável rotativo:** a cada etapa, um membro organiza commits, integra alterações e
-  documenta decisões.
-- **Revisão coletiva:** toda funcionalidade é explicada ao grupo e revisada em conjunto antes
-  de ser integrada.
+- **Papéis rotativos:** todos são analistas; a cada módulo, quatro pessoas assumem um papel
+  extra (coordenador, documentador, escriba, apresentador).
+- **Revisão coletiva:** nada entra na `main` sem PR revisado por outra pessoa.
 - **Atas:** registrar decisões em [docs/meeting_notes.md](docs/meeting_notes.md).
 
 ## Próximos passos
 
-Veja o [roadmap](docs/roadmap.md). Em resumo: terminar a Fase 0 (EDA) com tranquilidade e,
-quando o grupo estiver confortável, avançar para a Fase 1 (prova de conceito com a curva de
-luz do Kepler-10).
+Veja o [roadmap](docs/roadmap.md). Em resumo: terminar a **Fase 0** (EDA base) com
+tranquilidade e, na sequência, atacar o **Módulo 1 — Viés observacional** com o grupo todo
+junto (roteiro em [notebooks/modulo1_vies/README.md](notebooks/modulo1_vies/README.md)).
