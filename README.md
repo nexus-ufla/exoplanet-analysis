@@ -90,7 +90,19 @@ python main.py
 Isso usa `fetch_exoplanet_data()` para consultar a API, salvar os dados em
 `data/raw/exoplanets.csv` e mostrar uma prévia.
 
-### 5. Abrir a análise
+### 5. Aquecimento opcional de EDA
+
+Antes de entrar nos dados de exoplanetas, existe um material introdutório com dados físicos
+históricos, mas sem usar exoplanetas:
+
+- roteiro da aula: `docs/aula_eda_intro.md`
+- notebook: `notebooks/00_aquecimento_eda.ipynb`
+- dados: `data/sample/hubble_1929_galaxias.csv`
+
+Use esse aquecimento para apresentar EDA, pandas, unidades, dispersão, reta de tendência e
+interpretação cuidadosa de dados reais.
+
+### 6. Abrir a análise
 
 Abra `notebooks/01_eda.ipynb` no Jupyter ou no VS Code e execute as células de cima para baixo.
 
