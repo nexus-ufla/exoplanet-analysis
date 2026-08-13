@@ -44,6 +44,7 @@ exoplanet-analysis/
 ├── docs/
 │   ├── roadmap.md          # os módulos de análise do projeto
 │   ├── como-trabalhamos.md # divisão de tarefas, papéis e regras de Git
+│   ├── guia-do-gestor.md   # passo a passo de quem conduz o módulo
 │   ├── referencias.md      # links e materiais de apoio
 │   └── meeting_notes.md    # atas de reunião
 └── reports/
@@ -118,9 +119,9 @@ trabalho dentro de cada módulo — os papéis, o modo de trabalho e as regras d
 [docs/como-trabalhamos.md](docs/como-trabalhamos.md).
 
 - **Reuniões:** uma por semana (presencial ou online); comunicação contínua por Trello/WhatsApp.
-- **Papéis rotativos:** todos são analistas; a cada módulo, quatro pessoas assumem um papel
-  extra (coordenador, documentador, escriba, apresentador).
-- **Revisão coletiva:** nada entra na `main` sem PR revisado por outra pessoa.
+- **Papéis:** 4 duplas de analistas + 1 gestor, que conduz a reunião, revisa os PRs, integra
+  e documenta. A composição se redefine a cada módulo.
+- **Revisão coletiva:** nada entra na `main` sem PR revisado pelo gestor.
 - **Atas:** registrar decisões em [docs/meeting_notes.md](docs/meeting_notes.md).
 
 ## Próximos passos

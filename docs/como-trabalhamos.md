@@ -6,18 +6,22 @@ Grupo de **9 pessoas**. Todos os módulos funcionam do mesmo jeito.
 
 ## Os papéis
 
-**Todos são analistas** — todo mundo mexe nos dados. Além disso, quatro pessoas assumem uma
-responsabilidade extra, que **gira a cada módulo**:
+São só dois.
 
-| Papel | O que faz |
-| --- | --- |
-| **Coordenador** | Organiza a sessão, revisa os PRs e integra tudo na `main`. |
-| **Documentador** | Garante que os notebooks se expliquem sozinhos; atualiza o README. |
-| **Escriba** | Anota decisões e dúvidas da reunião em `meeting_notes.md`. |
-| **Apresentador** | Conta a história do módulo na reunião seguinte. |
+**Analistas** — as 8 pessoas das 4 duplas. São elas que respondem as perguntas do módulo.
 
-> O papel é responsabilidade **além** do trabalho, não no lugar dele. Quem coordena também
-> analisa.
+**Gestor** — a pessoa que fica fora das duplas. É dela toda a responsabilidade de condução:
+
+- organizar a reunião e conduzir a divisão das perguntas
+- revisar os PRs e integrar tudo na `main`
+- cuidar da documentação e do README
+- registrar as decisões na ata (`meeting_notes.md`)
+- apresentar o resultado do módulo
+
+O gestor **não analisa** naquele módulo — a função dele é fazer o trabalho dos outros oito
+chegar junto e organizado.
+
+> O passo a passo do que fazer em cada etapa está no [Guia do Gestor](guia-do-gestor.md).
 
 ---
 
@@ -27,26 +31,27 @@ Sempre o mesmo ciclo, em três etapas:
 
 ### 1. Reunião de abertura (juntos)
 
-- Apresentar o módulo e suas perguntas
-- Decidir qual dupla pega qual pergunta
+- O gestor apresenta o módulo e suas perguntas
+- Definir quem forma cada dupla e qual pergunta cada uma pega
 - Preparar os dados **uma vez só**, em conjunto, e guardar em `src/`
 
 ### 2. Durante a semana (em duplas)
 
-Cada dupla responde sua pergunta no próprio notebook, na própria branch.
+Cada dupla responde sua pergunta no próprio notebook, na própria branch. O gestor acompanha,
+revisa os PRs e destrava quem emperrar.
 
 ### 3. Reunião de fechamento (juntos)
 
 - Cada dupla apresenta sua figura em 5 minutos
 - O grupo discute as diferenças de abordagem
-- Montam juntos o `99_consolidado.ipynb` com a história completa
+- O gestor monta o `99_consolidado.ipynb` com a história completa
 
 ---
 
 ## As duplas
 
-Com 9 pessoas: **4 duplas + 1 coordenador**. Se o módulo tiver só 3 perguntas, 3 duplas e os
-outros três nos papéis de apoio.
+Com 9 pessoas: **4 duplas + 1 gestor**. Se o módulo tiver só 3 perguntas, uma das duplas vira
+um trio.
 
 Duas regras que fazem a dupla funcionar:
 
@@ -76,7 +81,7 @@ mesmo notebook, o conflito é quase certo e é bem chato de resolver.** Para evi
 3. **Limpar os resultados antes de commitar** (`Kernel → Restart & Clear Output`). Reduz muito
    o tamanho do diff e a chance de conflito.
 4. **Uma branch por dupla**, com nome claro: `modulo1-linha-do-tempo`.
-5. **Nada direto na `main`.** Sempre PR, sempre revisado por outra dupla.
+5. **Nada direto na `main`.** Sempre PR, sempre revisado pelo gestor.
 
 ### Fluxo básico
 
